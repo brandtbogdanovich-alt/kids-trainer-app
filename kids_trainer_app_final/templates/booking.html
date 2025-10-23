@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Book {{ trainer['name'] }}</h1>
+<p><strong>Sport:</strong> {{ trainer['sport'] }}</p>
+<p><strong>Price per session:</strong> ${{ '%.2f'|format(trainer['price']) }}</p>
+<form method="post">
+    <div class="form-group">
+        <label for="parent_name">Your Name</label>
+        <input type="text" name="parent_name" id="parent_name" required>
+    </div>
+    <div class="form-group">
+        <label for="parent_email">Your Email</label>
+        <input type="email" name="parent_email" id="parent_email" required>
+    </div>
+    <div class="form-group">
+        <label for="parent_phone">Your Phone Number</label>
+        <input type="text" name="parent_phone" id="parent_phone" required>
+    </div>
+    <div class="form-group">
+        <label for="date">Preferred Date</label>
+        <input type="date" name="date" id="date" required>
+    </div>
+    <div class="form-group">
+        <label for="time">Preferred Time</label>
+        <input type="time" name="time" id="time" required>
+    </div>
+    <div class="form-group">
+        <label for="notes">Additional Notes (optional)</label>
+        <textarea name="notes" id="notes" rows="3"></textarea>
+    </div>
+    <button class="button" type="submit">Submit Booking Request</button>
+</form>
+{% endblock %}
