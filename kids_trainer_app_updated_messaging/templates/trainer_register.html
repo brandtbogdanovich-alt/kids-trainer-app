@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Become a Coach on Kids Trainer Marketplace</h1>
+<p class="subtitle">Share your expertise with young athletes and help them reach their potential. Complete the form below to join our network of verified coaches.</p>
+<form method="post">
+    <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" required>
+    </div>
+    <div class="form-group">
+        <label for="sport">Sport / Discipline</label>
+        <input type="text" name="sport" id="sport" required>
+    </div>
+    <div class="form-group">
+        <label for="credentials">Credentials / Certifications</label>
+        <input type="text" name="credentials" id="credentials" required>
+    </div>
+    <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea name="bio" id="bio" rows="4" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="price">Price per session (USD)</label>
+        <input type="number" step="0.01" name="price" id="price" required>
+    </div>
+    <div class="form-group">
+        <label for="city">City / Location</label>
+        <input type="text" name="city" id="city" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" required>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" name="phone" id="phone" required>
+    </div>
+    <button class="button" type="submit">Register</button>
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Find a Coach</h1>
+<p class="subtitle">Use the filters below to find the perfect coach by sport and location.</p>
+
+<!-- Search/filter form -->
+<form method="get" class="search-form">
+    <input type="text" name="sport" placeholder="Sport" value="{{ sport_filter }}">
+    <input type="text" name="city" placeholder="City" value="{{ city_filter }}">
+    <button class="button" type="submit">Search</button>
+    {% if sport_filter or city_filter %}
+    <a class="button secondary" href="/trainers">Reset</a>
+    {% endif %}
+</form>
+
+{% if trainers %}
+    {% for trainer in trainers %}
+    <div class="card">
+        <h2><a href="/trainer/{{ trainer['id'] }}">{{ trainer['name'] }}</a></h2>
+        <p><strong>Sport:</strong> {{ trainer['sport'] }}</p>
+        <p><strong>Location:</strong> {{ trainer['city'] }}</p>
+        <p><strong>Credentials:</strong> {{ trainer['credentials'] }}</p>
+        <p><strong>Rating:</strong> {{ '%.1f'|format(trainer['rating']) }} &#9733;</p>
+        <p><strong>Price per session:</strong> ${{ '%.2f'|format(trainer['price']) }}</p>
+        <p><a class="button" href="/book/{{ trainer['id'] }}">Book</a> |
+        <a href="/trainer/{{ trainer['id'] }}">View Profile</a></p>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No trainers registered yet.</p>
+{% endif %}
+{% endblock %}

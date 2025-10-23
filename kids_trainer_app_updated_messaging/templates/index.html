@@ -1,0 +1,83 @@
+{#
+    Landing page for the Kids Trainer Marketplace.  This view is inspired by
+    polished two‑sided marketplaces such as Care.com and CoachUp.  It
+    features a full‑width hero image with a call to action, a grid of
+    popular sports categories, and a succinct value proposition.  Use
+    ``url_for('static', path=...)`` to refer to images located in the
+    ``static/images`` folder.  Adjust the list of categories and
+    corresponding images as needed to match the sports offered in your
+    marketplace.
+#}
+
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero section -->
+<div class="hero">
+<img class="hero-img" src="{{ url_for('static', path='images/hero.jpg') }}" alt="Children playing sports">
+    <div class="hero-overlay">
+        <h1>Trusted Youth Sports Coaching</h1>
+        <p>Empower your child's potential with professional coaches across every sport.</p>
+        <div class="hero-actions">
+            <a class="button" href="/trainers">Find a Coach</a>
+            <a class="button secondary" href="/register_trainer">Become a Coach</a>
+        </div>
+    </div>
+</div>
+
+<!-- Categories section -->
+<section class="categories">
+    <h2>Explore Sports Categories</h2>
+    <div class="category-grid">
+        <div class="category-card">
+            <a href="/trainers?sport=soccer">
+                <img src="{{ url_for('static', path='images/soccer.png') }}" alt="Soccer">
+                <h3>Soccer</h3>
+            </a>
+        </div>
+        <div class="category-card">
+            <a href="/trainers?sport=basketball">
+                <img src="{{ url_for('static', path='images/basketball.jpg') }}" alt="Basketball">
+                <h3>Basketball</h3>
+            </a>
+        </div>
+        <div class="category-card">
+            <a href="/trainers?sport=swimming">
+                <img src="{{ url_for('static', path='images/swimming.jpg') }}" alt="Swimming">
+                <h3>Swimming</h3>
+            </a>
+        </div>
+        <!-- Additional sport: Tennis -->
+        <div class="category-card">
+            <a href="/trainers?sport=tennis">
+                <img src="{{ url_for('static', path='images/tennis.jpg') }}" alt="Tennis">
+                <h3>Tennis</h3>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Value proposition / features section -->
+<section class="features">
+    <h2>Why Families Trust Us</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4>Verified Coaches</h4>
+            <p>All coaches on our platform are vetted for credentials, background checks and experience.</p>
+        </div>
+        <div class="feature-card">
+            <h4>Real Parent Reviews</h4>
+            <p>Read honest reviews from other parents and see ratings before booking.</p>
+        </div>
+        <div class="feature-card">
+            <h4>Flexible Scheduling</h4>
+            <p>Book sessions that fit your family's busy schedule, online or in person.</p>
+        </div>
+        <div class="feature-card">
+            <h4>Safe &amp; Fun Learning</h4>
+            <p>We prioritize your child's safety and enjoyment with quality coaches.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
