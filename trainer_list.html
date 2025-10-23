@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Available Trainers</h1>
+{% if trainers %}
+    {% for trainer in trainers %}
+    <div class="card">
+        <h2>{{ trainer['name'] }}</h2>
+        <p><strong>Sport:</strong> {{ trainer['sport'] }}</p>
+        <p><strong>Credentials:</strong> {{ trainer['credentials'] }}</p>
+        <p><strong>Bio:</strong> {{ trainer['bio'] }}</p>
+        <p><strong>Price per session:</strong> ${{ '%.2f'|format(trainer['price']) }}</p>
+        <p><strong>Email:</strong> {{ trainer['email'] }}</p>
+        <p><strong>Phone:</strong> {{ trainer['phone'] }}</p>
+        <p><a class="button" href="/book/{{ trainer['id'] }}">Book</a></p>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No trainers registered yet.</p>
+{% endif %}
+{% endblock %}
